@@ -6,14 +6,8 @@ import type { StackNavigationProp } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-type RootStackParamList = {
-  SignupFlow: undefined;
-  WelcomeBackScreen: undefined;
-  OTPVerificationScreen: { code: string; email?: string; mobile?: string };
-  OTPVerificationPhoneScreen: { code: string; mobile?: string };
-  GrantedScreen: undefined;
-  BasicDetails: undefined;
-};
+
+import type { RootStackParamList } from '../navigation/AppNavigator';
 
 export default function SignupFlow() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -85,7 +79,8 @@ export default function SignupFlow() {
         fontWeight: '700',
         color: '#000',
         marginLeft: 20,
-        marginBottom: 8,
+        marginTop: 16,
+        marginBottom: 3,
       }}>
         Create an Uyir account
       </Text>

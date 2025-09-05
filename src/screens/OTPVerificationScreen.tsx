@@ -1,6 +1,7 @@
 // @ts-ignore
 declare var alert: (message?: any) => void;
 import React, { useRef, useState } from 'react';
+import { Alert } from 'react-native';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Keyboard, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -44,7 +45,7 @@ const OTPVerificationScreen: React.FC = () => {
   const handleVerify = async () => {
     const entered = otp.join('');
     if (entered.length !== 4) {
-      alert('Please enter the 4-digit code.');
+  Alert.alert('Please enter the 4-digit code.');
       return;
     }
     try {
@@ -64,10 +65,10 @@ const OTPVerificationScreen: React.FC = () => {
       if (response.ok) {
         navigation.navigate('GrantedScreen');
       } else {
-        alert(data.detail || 'Incorrect code. Please try again.');
+  Alert.alert(data.detail || 'Incorrect code. Please try again.');
       }
     } catch (err) {
-      alert('Network error.');
+  Alert.alert('Network error.');
     }
   };
 

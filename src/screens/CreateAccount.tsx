@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Platform, TextInput, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Platform, TextInput } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
@@ -16,7 +17,7 @@ const CreateAccount: React.FC = () => {
   const insets = useSafeAreaInsets();
 
   return (
-    <SafeAreaView style={styles.container}>
+  <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
         {/* Back Button */}
         <View style={styles.headerRow}>
@@ -78,8 +79,8 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 50,      // Adjust this value to move the arrow up/down
-    left: -5,      // Adjust this value to move the arrow left/right
+    top: -5,      // Adjust this value to move the arrow up/down
+    left: -8,      // Adjust this value to move the arrow left/right
     zIndex: 10,
     backgroundColor: 'transparent',
     padding: 8,
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: 24,
-    paddingTop: 32,
+    paddingTop: 50,
     paddingBottom: 0,
     justifyContent: 'flex-start',
   },
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000',
     marginBottom: 8,
-    marginTop: 50, // Increase this value for more space above the title
+    marginTop: -15, // Increase this value for more space above the title
     fontFamily: Platform.OS === 'ios' ? 'Outfit' : undefined,
   },
   subtitle: {

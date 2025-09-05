@@ -1,7 +1,8 @@
 // @ts-ignore
 declare var alert: (message?: any) => void;
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView, Platform } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Platform, Alert } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -31,7 +32,7 @@ const LoginFlow: React.FC = () => {
       if (mobile) body.mobile = mobile.startsWith('+91') ? mobile : `+91${mobile}`;
       if (password) body.password = password;
       if (!email && !mobile) {
-        alert('Please enter email or mobile number.');
+        Alert.alert('Validation', 'Please enter email or mobile number.');
         setLoading(false);
         return;
       }
@@ -50,10 +51,10 @@ const LoginFlow: React.FC = () => {
           mobile: mobile ? (mobile.startsWith('+91') ? mobile : `+91${mobile}`) : undefined,
         });
       } else {
-        alert(typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail));
+        Alert.alert('Error', typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail));
       }
     } catch (err) {
-      alert('Network error.');
+      Alert.alert('Network error', 'Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -64,15 +65,23 @@ const LoginFlow: React.FC = () => {
   {/* ...removed status bar... */}
 
   {/* Back button and Login header */}
-  <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 70, marginBottom: 30, paddingHorizontal: 24 }}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="chevron-back" size={20} color="#000" />
+      <View style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        paddingHorizontal: 20,
+        marginTop: 20,
+        marginBottom: 5,
+      }}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={{ width: 32, alignItems: 'flex-start', zIndex: 2 }}>
+          <Ionicons name="chevron-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={{ fontSize: 18, fontWeight: '500', color: '#000' }}>Login</Text>
-        <View style={{ width: 32 }} />
+        <View style={{ flex: 1, alignItems: 'center', position: 'absolute', left: 0, right: 0 }}>
+          <Text style={{ fontSize: 18, fontWeight: '400', color: '#000', textAlign: 'center' }}>Login</Text>
+        </View>
       </View>
 
-  <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 24, paddingTop:  0 }} keyboardShouldPersistTaps="handled">
+  <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 24, paddingTop: 24 }} keyboardShouldPersistTaps="handled">
         <Text style={styles.headerTitle}>Create an Uyir account</Text>
 
         {/* Email */}
@@ -139,9 +148,12 @@ const LoginFlow: React.FC = () => {
         </View>
         <Text style={{ color: '#A8A8A8', fontSize: 12, marginTop: 4, marginBottom: 8 }}>Enter your mobile number we'll send you a OTP</Text>
 
+        {/* Spacer to push buttons down */}
+  <View style={{ minHeight: 50 }} />
+
         {/* Continue Button */}
         <TouchableOpacity
-          style={[styles.loginButton, { marginTop: 32 }, loading && { opacity: 0.6 }]}
+          style={[styles.loginButton, { marginTop: 0 }, loading && { opacity: 0.6 }]}
           onPress={handleContinue}
           disabled={loading}
         >

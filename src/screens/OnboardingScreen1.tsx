@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import type { RootStackParamList } from '../navigation/types';
+import type { RootStackParamList } from '../navigation/AppNavigator';
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'OnboardingScreen1'>;
 
@@ -26,7 +26,7 @@ const OnboardingScreen1: React.FC = () => {
 					<View style={styles.buttonContainer}>
 						<TouchableOpacity
 							style={[styles.button, styles.outlinedButton]}
-							onPress={() => navigation.navigate('SignupFlow')}
+							onPress={() => navigation.navigate('LoginFlow')}
 						>
 							<Text style={[styles.buttonText, styles.outlinedButtonText]}>Log in</Text>
 						</TouchableOpacity>

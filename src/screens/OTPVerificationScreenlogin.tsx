@@ -1,15 +1,14 @@
 // @ts-ignore
 declare var alert: (message?: any) => void;
 import React, { useRef, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, Platform } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Platform } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
+import type { RootStackParamList } from '../navigation/AppNavigator';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-type RootStackParamList = {
-  OTPVerificationScreenlogin: { code?: string; email?: string; mobile?: string };
-  GrantedScreen: undefined;
-};
+
 
 const OTPVerificationScreenlogin: React.FC = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -138,7 +137,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingHorizontal: 24,
-    paddingTop: 120,
+    paddingTop: 60, // moved up from 120
   },
   backButton: {
     position: 'absolute',

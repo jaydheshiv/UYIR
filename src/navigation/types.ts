@@ -5,6 +5,7 @@ export type RootStackParamList = {
   Walkthrough3: undefined;
   OnboardingScreen1: undefined;
   Login: undefined;
+  LoginFlow: undefined;
   SignUp: undefined;
   Home: undefined;
   Details: { itemId?: number } | undefined;
