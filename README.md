@@ -1,51 +1,159 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Getting Started: Run This App on a New Device
 
-# Getting Started
+---
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Quick Requirements List
 
-## Step 1: Start Metro
+All requirements for this project are listed in `requirements.txt` (see below for details).
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+---
+## 0. Download All Requirements Automatically
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+You can use the following commands to install all the required tools and dependencies for this project:
 
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+### Windows (PowerShell)
+```powershell
+# Install Node.js (LTS) - Download and run the installer from https://nodejs.org/
+# Install yarn (optional)
+npm install -g yarn
+# Install React Native CLI (if not using Expo)
+npm install -g react-native-cli
+# Install Android Studio manually from https://developer.android.com/studio
+# For iOS (macOS only): Install Xcode from the Mac App Store
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
+### Install Project Dependencies
 ```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+npm install
+# or
+yarn install
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
+### iOS Only (macOS)
 ```sh
-bundle install
+cd ios
+pod install
+cd ..
+# or
+npx pod-install
 ```
 
-Then, and every time you update your native dependencies, run:
+---
+## requirements.txt (for reference)
 
-```sh
-bundle exec pod install
+This file lists all the main tools and libraries needed to run the project. (For Node.js projects, dependencies are managed in `package.json`, but this file is provided for clarity and onboarding.)
+
+```
+# System Requirements
+Node.js >= 18.x
+npm >= 9.x
+
+# Getting Started: Run This App on a New Device
+### npm or yarn
+# Getting Started: Run This App on a New Device (Android Only)
+
+---
+
+## What You Need to Download (Beginner Friendly)
+
+1. **Node.js**
+	- Download and install Node.js (LTS version recommended) from: https://nodejs.org/
+	- This also installs npm (Node Package Manager).
+
+2. **yarn** (optional)
+	- Alternative to npm. Install globally (optional):
+	  ```sh
+	  npm install -g yarn
+	  ```
+
+3. **React Native CLI**
+	- Command-line tool for React Native projects. Install globally:
+	  ```sh
+	  npm install -g react-native-cli
+	  ```
+
+4. **Android Studio**
+	- Download and install from: https://developer.android.com/studio
+	- Includes Android SDK, build tools, and emulator.
+	- Follow the setup wizard to install SDK and create a virtual device (emulator).
+
+5. **Java Development Kit (JDK)**
+	- Android Studio will prompt you to install this if needed. (Recommended: JDK 17 or newer)
+
+6. **Project Dependencies**
+	- All libraries and modules your app needs are listed in `package.json` and `requirements.txt`.
+	- Install them with:
+	  ```sh
+	  npm install
+	  # or
+	  yarn install
+	  ```
+
+7. **Android Device or Emulator**
+	- Use a physical Android device (enable Developer Mode and USB Debugging) or an Android emulator from Android Studio.
+
+---
+
+## requirements.txt (for reference)
+
+This file lists all the main tools and libraries needed to run the project. (For Node.js projects, dependencies are managed in `package.json`, but this file is provided for clarity and onboarding.)
+
+```
+# System Requirements
+Node.js >= 18.x
+npm >= 9.x
+yarn (optional)
+react-native-cli
+Android Studio (for Android)
+
+# Project Dependencies (auto-installed by npm/yarn)
+@react-navigation/native
+@react-navigation/stack
+react-native-safe-area-context
+react-native-vector-icons
+react-native-gesture-handler
+react-native-screens
+@react-native-community/datetimepicker
+```
+
+---
+
+## Step-by-Step: How to Run the App
+
+1. **Clone the repository and open the project folder:**
+	```sh
+	git clone https://github.com/jaydheshiv/uyir.git
+	cd uyir
+	```
+
+2. **Install all project dependencies:**
+	```sh
+	npm install
+	# or
+	yarn install
+	```
+
+3. **Start an Android emulator or connect your Android device.**
+
+4. **Run the app:**
+	```sh
+	npx react-native run-android
+	```
+
+5. **Edit and reload:**
+	- Open `App.tsx` in your editor and make changes. The app will auto-update (Fast Refresh).
+	- To force reload: Press <kbd>R</kbd> twice or select **"Reload"** from the **Dev Menu** (<kbd>Ctrl</kbd>+<kbd>M</kbd> on Windows/Linux, <kbd>Cmd ⌘</kbd>+<kbd>M</kbd> on macOS).
+
+---
+
+### Troubleshooting
+- If you see errors, check the official React Native docs: https://reactnative.dev/docs/environment-setup
+- Make sure your emulator/device is running and connected.
+- For Android, enable "Developer Options" and "USB Debugging" on your device.
+
+---
+
+**You're ready to go! If you have any issues, check the README or ask for help.**
 ```
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).

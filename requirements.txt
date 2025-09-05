@@ -1,0 +1,19 @@
+###########################################
+# uyir React Native App Requirements File #
+###########################################
+
+# System Requirements
+Node.js >= 18.x
+npm >= 9.x
+yarn (optional)
+react-native-cli
+Android Studio (for Android)
+
+# Project Dependencies (auto-installed by npm/yarn)
+@react-navigation/native
+@react-navigation/stack
+react-native-safe-area-context
+react-native-vector-icons
+react-native-gesture-handler
+react-native-screens
+@react-native-community/datetimepicker
