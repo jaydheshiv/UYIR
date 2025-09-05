@@ -1,0 +1,10 @@
+export { default as HomeScreen } from './HomeScreen';
+export { default as SplashScreen } from './SplashScreen';
+// export { default as LoginScreen } from './LoginScreen';
+// export { default as SignUpScreen } from './SignUpScreen';
+export { default as Walkthrough1 } from './Walkthrough1';
+export { default as Walkthrough2 } from './Walkthrough2';
+export { default as Walkthrough3 } from './Walkthrough3';
+export { default as OnboardingScreen1 } from './OnboardingScreen1';
+export { default as BasicDetails } from './BasicDetails';
+export { default as GuardianConsent } from './GuardianConsent';
